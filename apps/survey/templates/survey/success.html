@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Results</title>
+	<style>
+		body{
+			text-align: center;
+		}
+		h1{
+      border: 1px solid black;
+      background-color: lightgreen;
+    	}
+    	h3{
+    		text-decoration: underline;
+    	}
+	</style>
+</head>
+<body>
+	{%csrf_token%}
+	<h1>Thanks for submitting this form! You have submitted this form {{request.session.count}} times now</h1>
+	<h3>Submitted Information</h3>
+	<p>Name: {{request.session.full_name}}</p>
+	<p>Location: {{request.session.location}}</p>
+	<p>Language: {{request.session.language}}</p>
+	<p>Comments: {{request.session.comments}}</p>
+	<form action="/goback">
+		<input type="submit" value="Go Back">
+	</form>
+</body>
+</html>
